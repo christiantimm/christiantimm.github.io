@@ -4,7 +4,7 @@ title: "Sublime Text 3"
 ---
 ## Plugins (Optisch + Komfort)
 
-#### Font [FireCode](https://github.com/tonsky/FiraCode) 
+#### Font [FiraCode](https://github.com/tonsky/FiraCode) 
 ![FireCode](https://raw.githubusercontent.com/tonsky/FiraCode/master/extras/logo.svg) 
 
 #### [A File Icon](https://packagecontrol.io/packages/A%20File%20Icon) 
@@ -56,7 +56,7 @@ Macht aus Sublime eine IDE-Light
 #### [SublimeLinter](https://packagecontrol.io/packages/SublimeLinter) 
 Basis-Plugin für folgende Plugins
 - #### [PHPCS](https://packagecontrol.io/packages/SublimeLinter-phpcs) 
-    + Wendet einen PHP-Codierung-Standard an (PEAR, PS12, …), erkennt Fehler und kann diese auch korrigieren.
+    + Wendet einen PHP-Codierung-Standard an (PEAR, PSR12, …), erkennt Fehler und kann diese auch korrigieren.
     + [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) muss lokal installiert sein
 - #### [PHP](https://packagecontrol.io/packages/SublimeLinter-php)
     + Zeigt PHP-Syntax Fehler an
