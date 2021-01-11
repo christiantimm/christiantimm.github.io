@@ -4,15 +4,16 @@ title: "Sublime Text 3"
 ---
 ## Plugins (Optisch + Komfort)
 
+#### Font [FireCode](https://github.com/tonsky/FiraCode) 
+![FireCode](https://raw.githubusercontent.com/tonsky/FiraCode/master/extras/logo.svg) 
 
 #### [A File Icon](https://packagecontrol.io/packages/A%20File%20Icon) 
-
 
 ![A Font File](https://packagecontrol.io/readmes/img/f5a4084ecd52e981150282d168130d7e5f46ff46.png) 
 
 #### Themes
 - [Material Theme](https://packagecontrol.io/packages/Material%20Theme)
-- [Ayu](https://packagecontrol.io/packages/ayu) 
+- [Ayu](https://packagecontrol.io/packages/ayu) (A File Icon bereits integriert)
 
 #### [Emmet](https://packagecontrol.io/packages/Emmet) 
 ##### [emmet.io](https://emmet.io/) 
@@ -58,7 +59,7 @@ Basis-Plugin für folgende Plugins
     + Wendet einen PHP-Codierung-Standard an (PEAR, PS12, …), erkennt Fehler und kann diese auch korrigieren.
     + [PHP_CodeSniffer](https://github.com/squizlabs/PHP_CodeSniffer) muss lokal installiert sein
 - #### [PHP](https://packagecontrol.io/packages/SublimeLinter-php)
-    + Zeigt PHP-Syntax Fehler an. Code-Completion
+    + Zeigt PHP-Syntax Fehler an
     + PHP muss lokal installiert sein
 
 
@@ -71,14 +72,14 @@ Basis-Plugin für folgende Plugins
 | CMD+W | Tab schließen  |
 | CMD+1, CMD+2, … | Wechsel zwischen Tabs |
 | CMD+K, CMD+B | Toggle Sidebar |
-| CTRL+G | GotTo Line |
+| CTRL+G | GoTo Line |
 | CMD+Shift+F | Suche |
 | CMD+P | GoTo Anything – Sprung zwischen Dateien – Befehle ausführen |
 
 #### PHP
 
 | F5 | Namensraum importieren |
-| F12 | Zur Klassendefinition springen|
+| F12 | Zur Klassen/Funktions-definition springen|
 
 
 #### Emmet
@@ -87,5 +88,3 @@ Basis-Plugin für folgende Plugins
 | CTRL+J | Tags markieren (Inwards)|
 
 [Cheat-Sheet](https://cheatography.com/martinprins/cheat-sheets/sublime-text-3-osx/) 
-
-
