@@ -4,7 +4,7 @@ title: "Sublime Text 3"
 ---
 ## Plugins (Optisch + Komfort)
 
-#### Font [FiraCode](https://github.com/tonsky/FiraCode) 
+#### Font [FiraCode](https://github.com/tonsky/FiraCode)
 ![FireCode](https://raw.githubusercontent.com/tonsky/FiraCode/master/extras/logo.svg) 
 
 #### [A File Icon](https://packagecontrol.io/packages/A%20File%20Icon) 
