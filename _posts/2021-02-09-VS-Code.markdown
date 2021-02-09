@@ -10,13 +10,16 @@ Einige Extensions funktionieren nur im Zusammenspiel mit anderen Programmierspra
 - aktuelle PHP-Version: [Homebrew](https://brew.sh/)
 
 Webseite zum VS-Code Marketplace: [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/)
-
 ### Extensions
-
+#### [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)
+#### [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek)
+#### [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
 #### [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
+#### [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 #### [Deutsche Sprache](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-de)
 #### [vscode-php-cs-fixer](https://marketplace.visualstudio.com/items?itemName=fterrag.vscode-php-cs-fixer)
 Voraussetzung: [PHP-CS-Fixer](https://github.com/FriendsOfPHP/PHP-CS-Fixer#installation), Aktuelle PHP-Version
+#### [PHP DocBlocker](https://marketplace.visualstudio.com/items?itemName=neilbrayfield.php-docblocker)
 #### [PHP Intelephense](https://marketplace.visualstudio.com/items?itemName=bmewburn.vscode-intelephense-client)
 #### [PHP Namespace Resolver](https://marketplace.visualstudio.com/items?itemName=MehediDracula.php-namespace-resolver)
 #### [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
@@ -27,3 +30,51 @@ GraphQL · Markdown · YAML
   
 Vorauserzung: NodeJS  
 #### [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
+
+## Installation
+```sh
+code --install-extension bmewburn.vscode-intelephense-client
+code --install-extension ecmel.vscode-html-css
+code --install-extension esbenp.prettier-vscode
+code --install-extension fterrag.vscode-php-cs-fixer
+code --install-extension ionutvmi.path-autocomplete
+code --install-extension MehediDracula.php-namespace-resolver
+code --install-extension MS-CEINTL.vscode-language-pack-de
+code --install-extension eamodio.gitlens
+code --install-extension neilbrayfield.php-docblocker
+code --install-extension pranaygp.vscode-css-peek
+code --install-extension xabikos.javascriptsnippets
+code --install-extension coenraads.bracket-pair-colorizer
+```
+## JSON-Settings
+
+```json
+{
+	"editor.wordWrapColumn": 120,
+	"editor.wordWrap": "bounded",
+	"editor.fontSize": 12,
+	"editor.lineHeight": 40,
+	"editor.tabSize": 4,
+	"editor.fontLigatures": true,
+	"breadcrumbs.enabled": true,
+	"emmet.includeLanguages": {
+		"twig": "html",
+		"vue-html": "html",
+		"blade": "html"
+	},
+	"editor.codeActionsOnSave": {
+		"source.fixAll.eslint": true
+	},
+	"editor.fontWeight": "500",
+	"workbench.colorTheme": "Material Theme Palenight High Contrast",
+	"php.suggest.basic": false,
+	"[php]": {
+		"editor.defaultFormatter": "bmewburn.vscode-intelephense-client"
+	},
+	"editor.defaultFormatter": "esbenp.prettier-vscode",
+	"editor.suggestSelection": "first",
+	"vscode-php-cs-fixer.rules": "@PSR1,@PSR2,@PRS12,@Symfony,-yoda_style",
+	"prettier.printWidth": 120,
+	"prettier.tabWidth": 4
+}
+```
