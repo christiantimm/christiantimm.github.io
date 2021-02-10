@@ -70,7 +70,7 @@ Basis-Plugin für folgende Plugins
 | CMD+Shift+P | Öffnet Command Palette |
 | CMD+P | GoTo Anything – Sprung zwischen Dateien – Befehle ausführen |
 | CMD+W | Tab schließen  |
-| CMD+1, CMD+2, … | Wechsel zwischen Tabs |
+| CMD+1, CMD+-10, … | Wechsel zwischen Tabs |
 | CMD+K, CMD+B | Toggle Sidebar |
 | CTRL+G | GoTo Line |
 | CMD+Shift+F | Suche |

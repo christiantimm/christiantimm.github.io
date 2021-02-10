@@ -11,9 +11,10 @@ Einige Extensions funktionieren nur im Zusammenspiel mit anderen Programmierspra
 
 Webseite zum VS-Code Marketplace: [https://marketplace.visualstudio.com/](https://marketplace.visualstudio.com/)
 ### Extensions
+#### [Auto Rename Tag](https://marketplace.visualstudio.com/items?itemName=formulahendry.auto-rename-tag)
 #### [HTML CSS Support](https://marketplace.visualstudio.com/items?itemName=ecmel.vscode-html-css)
 #### [CSS Peek](https://marketplace.visualstudio.com/items?itemName=pranaygp.vscode-css-peek)
-#### [Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)
+#### ~~[Path Autocomplete](https://marketplace.visualstudio.com/items?itemName=ionutvmi.path-autocomplete)~~
 #### [Bracket Pair Colorizer](https://marketplace.visualstudio.com/items?itemName=CoenraadS.bracket-pair-colorizer)
 #### [GitLens — Git supercharged](https://marketplace.visualstudio.com/items?itemName=eamodio.gitlens)
 #### [Deutsche Sprache](https://marketplace.visualstudio.com/items?itemName=MS-CEINTL.vscode-language-pack-de)
@@ -32,12 +33,12 @@ Vorauserzung: NodeJS
 #### [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
 
 ## Installation
+Vorher CMD+Shift+P > Shell Command: Install 'code' command in PATH
 ```sh
 code --install-extension bmewburn.vscode-intelephense-client
 code --install-extension ecmel.vscode-html-css
 code --install-extension esbenp.prettier-vscode
 code --install-extension fterrag.vscode-php-cs-fixer
-code --install-extension ionutvmi.path-autocomplete
 code --install-extension MehediDracula.php-namespace-resolver
 code --install-extension MS-CEINTL.vscode-language-pack-de
 code --install-extension eamodio.gitlens
@@ -45,7 +46,31 @@ code --install-extension neilbrayfield.php-docblocker
 code --install-extension pranaygp.vscode-css-peek
 code --install-extension xabikos.javascriptsnippets
 code --install-extension coenraads.bracket-pair-colorizer
+code --install-extension formulahendry.auto-rename-tag
 ```
+
+## Key-Bindings
+[Offizielle Liste](https://code.visualstudio.com/shortcuts/keyboard-shortcuts-macos.pdf)  
+Anzeige der Keybindings in VSCode: CMD+K, CMD+S
+#### Allgemein
+
+| CMD+Shift+P | Öffnet Command Palette |
+| CMD+P | GoTo Anything – Sprung zwischen Dateien – Befehle ausführen |
+| CMD+W | Tab schließen  |
+| Control+Space | Kontextmenü öffnen |
+| Control+1, Control+2, … | Wechsel zwischen Tabs |
+| CMD+B | Toggle Sidebar |
+| Control+G | GoTo Line |
+| CMD+Shift+F | Suche |
+
+#### PHP
+
+| CMD+Shift+I | Namensraum importieren (Benötigt PHP Namespace Resolver Extension) |
+| F12 | Zur Klassen/Funktions-definition springen, funktioniert mit HTML CSS Support-Extension auch mit CSS-Klassen |
+
+#### Emmet
+[Emmet Actions](https://docs.emmet.io/actions/)
+
 ## JSON-Settings
 
 ```json
