@@ -28,8 +28,6 @@ JavaScript · TypeScript · Flow · JSX · JSON
 CSS · SCSS · Less
 HTML · Vue · Angular
 GraphQL · Markdown · YAML  
-  
-Vorauserzung: NodeJS  
 #### [JavaScript (ES6) code snippets](https://marketplace.visualstudio.com/items?itemName=xabikos.JavaScriptSnippets)
 
 ## Installation
