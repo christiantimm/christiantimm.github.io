@@ -1,0 +1,149 @@
+---
+layout: post
+title: "GIT"
+---
+
+![Git-Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/150px-Git-logo.svg.png)  
+[https://git-scm.com/](https://git-scm.com/)
+# Was ist das
+Software Versionsverwaltung, entwickelt von Linus Torvalds (Entwickler des Linux-Kernels)  
+
+
+# Warum
+
+- Sicheres testen von Code, ohne auf CMD+Z angewiesen zu sein
+- Arbeit Dateien zur selben Zeit
+- Homeoffice
+- Lokales arbeiten
+- Überblick über
+    - Wann  
+    - Wer  
+    - Wo   
+    - Was   
+
+
+# Wo
+Git kann lokal oder in Verbindung mit einem Online-Dienst verwendet werden
+
+## Online-Dienste
+- GitHub
+- BitBucket (Verwenden wir derzeit)
+
+## Pricing
+### Github
+![Wie](/assets/github_pricing.png)
+### Bitbucket
+![Wie](/assets/bitbucket_pricing.png)
+
+## Die verschiedenen Datei-Status
+
+| **Status** | **Kennt Git diese Datei?** |
+| Untracked | 𐄂 | 
+| Changed | ✓ | 
+| Deleted | ✓ | 
+| Staging | ✓  𐄂 | 
+| Tracked | ✓ | 
+
+## Welche Dateien sollte man versionieren?
+Alle Dateien, die für eine lauffähige Webseite nötig sind
+- PHP, HTML, JS, CSS
+- Bilder
+- PDF's
+- .env.example (Beispiel für .env, enthällt wichtige Variablen für das Projekt)
+    - Bei Ersteinrichtung auf Arbeitsplatz
+    ```bash
+    $ cp .env.example .env
+    ```
+
+## Welche Dateien sollte man **nicht** versionieren
+- vendor Ordner bzw. statische Bibliotheken (composer) 
+    - Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .composer.json bzw. composer.lock
+    - Installation über 
+    ```bash
+    $ composer install
+    ```
+- node_modules (nodejs)
+    - Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .package.json bzw. package.lock
+    - Installation über
+    ```bash
+    $ npm install
+    ```
+- User generated content (Rechnungs-PDF's, Profilbilder, ...)
+- Zu große Dateien
+
+### .env
+- Allgemeine Daten. (z.b.: E-mail Absender).  
+- Sensible Daten wie Datenbankzugriff, Mailkonten  
+- Zugriff über $_['ENV'] Variable (getenv() veraltet in der neusten Version von [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv))
+
+#### Warum keine dbconnect.php oder config.php?  
+- **You should never store sensitive credentials in your code**
+- Nicht versionierbar, da Inhalt immer von Entwicklungsumgebung abhängt (Homeoffice, Arbeitsplatz, Mobil), man würde sich ständig gegenseitig überschreiben
+
+.env
+```env
+DB_HOST=
+DB_USERNAME=
+DB_PASSWORD=
+```
+Zugriff
+```php
+$_ENV['DB_HOST'];
+```
+
+## [.gitignore](https://git-scm.com/docs/gitignore)
+Wird in der Projekt-Root abgelegt. Definiert welche Dateien oder welche Inhalt von Ordnern Ignoriert werden soll
+```bash
+/node_modules
+/vendor
+/public/usercontent/*
+.env
+```
+**Achtung**: Git versioniert keine leeren Ordner. Dafür kann man eine .gitkeep in einen leeren Ordner ablegen.
+
+## Begriffe
+
+![Git](https://i.stack.imgur.com/cZkcV.jpg)
+
+| Working Directory / Workspace / Working Tree | Alle Dateien im Projekt des ausgewählten Branches/Commits |
+| HEAD | Zeiger auf den aktuellen Commit oder Branch |
+| Index | Ablageort (Staging Area) |
+| Branch | Zweig, Standart-Zweig ist master (neuerdings Main weil Rasissmus) |
+| Fetch | Holte alle updates vom Remote Repository (Github), führt **kein** Merge durch |
+| Pull | Holte alle updates vom Remote Repository (Github), führt Merge durch | 
+| Merge | Zusammenführen zweier Commits |
+| Rebase | Zusammenführen zweier Commits, nur anders |
+
+# Wie
+
+Lokales Git-Repository initialisieren
+```bash
+$ git init myproject
+```
+Aktuellen status erfragen
+```bash
+$ git status
+```
+Geänderte Dateien dem
+```bash
+$ git add .
+$ git commit -m "Importing all the code"
+```
+push (Lokale Daten zum Remote Repository schicken)
+```bash
+$ git push origin master
+```
+
+Commit pull (Daten vom Remote Repository holen)
+```bash
+$ git pull origin master
+```
+
+
+
+# Tools
+## GibHub
+## Sourcetree
+## Terminal
+
+
