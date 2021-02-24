@@ -151,11 +151,49 @@ $ git status
 - git reset
 - git rm
 
+```bash
+// Zwischen branches, commits wechslen
+$ git checkout <branch>
+$ git checkout <commit hash>
+
+// Neuen Branch erstellen und direckt auschecken
+$ git checkout -b <name>
+
+// Alle untracked files entfernen (dry-run mit -n)
+- git clean -f
+
+// Commit rückganging machen
+- git revert <commit hash>
+
+// Dateiänderung im Staging-Area rückgängig machen
+- git reset <datei>
+
+// Datei entfernen
+- git rm <datei>
+
+// Datei nur aus Git entfernen, Datei aber behalten
+- git rm --cached <datei>
+
+```
+
 ## Verläufe ändern
 - git commit --amend
 - git rebase
 - git rebase -i
 - git reflog
+
+### Folgende Befehle mit Vorsicht verwenden, da diese die Historie umschreiben.  
+Allgemeine Regel: Nur verwenden, wenn die Änderung noch nicht gepushed wurden und man sich  
+in einem Feature-Branch befindet
+
+[Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
+```bash
+// Den letzten commit um eine Änderung ergänzen
+- git commit --amend
+
+// Verlauf umschreiben (Commits zusammenfassen, umbenennen)
+- git rebase 
+```
 
 ## Welche Dateien sollte man versionieren?
 
@@ -224,3 +262,15 @@ Wird in der Projekt-Root abgelegt. Definiert welche Dateien oder welche Inhalt v
 ```
 
 **Achtung**: Git versioniert keine leeren Ordner. Dafür kann man eine .gitkeep in einen leeren Ordner ablegen.
+
+## Projektstruktur
+Projekte sollten so umgesetzt werden, dass sie ohne Probleme reproduzierbar sind
+- Optimierte Ordnerstruktur
+- Vorgefertigte .env.example
+- Migrations und Seeder oder SQL-Dump
+- Readme.MD mit Instruktionen (composer install oder npm install)
+
+## CI/CD (Continuouse Integration/Continuouse Delivery)
+Ausführung von Tests, Lintern, und automatische Veröffentlichung
+- Gibhub Actions
+- Bitbucket Deployments
