@@ -6,6 +6,10 @@ title: "GIT"
 ![Git-Logo](https://upload.wikimedia.org/wikipedia/commons/thumb/e/e0/Git-logo.svg/150px-Git-logo.svg.png)  
 [https://git-scm.com/](https://git-scm.com/)
 
+## Nützliche Ressourcen
+- [Bitbucket Git Tutorial](https://www.atlassian.com/de/git/tutorials/learn-git-with-bitbucket-cloud)
+- [Git Spickzettel](https://www.atlassian.com/de/git/tutorials/atlassian-git-cheatsheet)
+
 # Was ist das
 
 Software Versionsverwaltung, entwickelt von Linus Torvalds (Entwickler des Linux-Kernels)
@@ -13,42 +17,183 @@ Software Versionsverwaltung, entwickelt von Linus Torvalds (Entwickler des Linux
 # Warum
 
 -   Sicheres testen von Code, ohne auf CMD+Z angewiesen zu sein
--   Arbeit Dateien zur selben Zeit
--   Homeoffice
--   Lokales arbeiten
--   Überblick über
-    -   Wann
-    -   Wer
-    -   Wo
-    -   Was
+-   Möglichkeit mit mehreren Leute an einem Projekt / einer Datei zu arbeiten
+-   Sinnvoll für Homeoffice
+-   Historie über Änderung (Wer, wann, wo, was, warum)
 
-# Wo
+## SSH-Key
+SSH (Secure Shell) zur Remote-Verbindung zur Shell von Servern. Der Key dient für die Authentifizierung von Client und Server.  
+Besteht aus Private (Schlüssel) und Public Key (Schloss). Private Key **nie** teilen. 
 
-Git kann lokal oder in Verbindung mit einem Online-Dienst verwendet werden
+[Anleitung](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/)
 
 ## Online-Dienste
 
 -   GitHub
 -   BitBucket (Verwenden wir derzeit)
+-   GitLab (OpenSource und kann auf eigenem Server installiert werden)
+-   ... viele andere
 
 ## Pricing
 
-### Github
+### [Github](https://github.com/pricing)
 
-![Wie](/assets/github_pricing.png)
+### [Bitbucket](https://www.atlassian.com/software/bitbucket/pricing)
 
-### Bitbucket
+## Begriffe
 
-![Wie](/assets/bitbucket_pricing.png)
+![Git](https://i.stack.imgur.com/cZkcV.jpg)
 
-## Die verschiedenen Datei-Status
+| Working Directory / Workspace / Working Tree | Alle Dateien im Projekt des ausgewählten Branches/Commits  I.d.R. Sync. mit den lokalen Dateien |
+| HEAD | Zeiger auf den aktuellen Commit oder Branch |
+| Index | Ablageort (Staging Area) |
+| Branch | Zweig, Standart-Zweig ist master (neuerdings Main weil Rasissmus) |
+| Fetch | Holte alle updates vom Remote Repository (Github), führt **kein** Merge durch |
+| Pull | Holte alle updates vom Remote Repository (Github), führt Merge durch |
+| Merge | Zusammenführen zweier Commits |
+| Rebase | Zusammenführen zweier Commits, nur anders |
+
+## Allgemeine Befehle (Siehe auch Spickzettel)
+- git init
+- git clone
+- git config
+
+
+```bash
+// Initialisierung eines lokalen Git-Repos
+$ git init 
+
+// Externes Repo kopieren
+$ git clone <url>
+
+// git config (Muss nur einmal ausgeführt werden)
+$ git config --global user.name "Name"
+$ git config --global user.email "example@example.com"
+```
+
+## Änderungen speichern
+- git add
+- git commit 
+- git stash
+- git diff
+
+
+```bash
+// Alle geänderte/unbekannten/gelöschten Dateien der Staging-Area hinzufügen
+$ git add .
+
+// Spezifische Dateien 
+$ git add <file>
+
+// Dateien in der Staging-Area speichern mit kommentar
+$ git commit -m "Importing all the code"
+
+// Eine Änderung dem letzten commit hinzufügen
+$ git commit --amend
+
+// Änderungen aus dem der Arbeitskopie entfernen und zwischenspeichern (stashed)
+Sinnvoll, wenn man sich anderen Aufgaben widmen muss.  
+Name des stashed: WIP on <branch>...
+
+// Ohne untracked Dateien
+$ git stash
+
+// Stash mit Kommentar
+$ git stash save "Kommentar"
+
+// Mit untracked Dateien
+$ git stash -u (oder --include-untracked)
+
+// Alle stashes auflisten, der zu letzt hinzugefügte Stash hat den Index 0
+$ git stash list
+
+// Den letzten stash auf den Arbeitsbereich anwenden
+$ git stash pop
+
+// Spezifischen stash auf den Arbeitsbereich anwenden
+$ git stash pop stash@{2}
+
+// Spezifischen stash löschen
+$ git stash drop stash@{1}
+
+// Alle stashes löschen
+$ git stash clear
+
+// Vergleich des Arbeitsbereichs mit HEAD (i.d.R. letzter Snaphshot von   
+aktuellen Branch, kann auch spezifischer Snapshot sein)
+$ git diff
+```
+
+## Ein Repository überprüfen
+- git status
+- git tag
+- git blame
+
+### Die verschiedenen Datei-Status
 
 | **Status** | **Kennt Git diese Datei?** |
-| Untracked | 𐄂 |
+| Untracked | x |
 | Changed | ✓ |
 | Deleted | ✓ |
-| Staging | ✓  𐄂 |
+| Staging | ✓  x |
 | Tracked | ✓ |
+
+```bash
+// Status des aktuellen Arbeitsverzeichnisses (Workding Directory)  
+und der Staging-Umgebung ausgeben
+$ git status
+```
+
+## Änderungen rückgängig machen
+- git checkout
+- git clean
+- git revert
+- git reset
+- git rm
+
+```bash
+// Zwischen branches, commits wechslen
+$ git checkout <branch>
+$ git checkout <commit hash>
+
+// Neuen Branch erstellen und direckt auschecken
+$ git checkout -b <name>
+
+// Alle untracked files entfernen (dry-run mit -n)
+- git clean -f
+
+// Commit rückganging machen
+- git revert <commit hash>
+
+// Dateiänderung im Staging-Area rückgängig machen
+- git reset <datei>
+
+// Datei entfernen
+- git rm <datei>
+
+// Datei nur aus Git entfernen, Datei aber behalten
+- git rm --cached <datei>
+
+```
+
+## Verläufe ändern
+- git commit --amend
+- git rebase
+- git rebase -i
+- git reflog
+
+### Folgende Befehle mit Vorsicht verwenden, da diese die Historie umschreiben.  
+Allgemeine Regel: Nur verwenden, wenn die Änderung noch nicht gepushed wurden und man sich  
+in einem Feature-Branch befindet
+
+[Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
+```bash
+// Den letzten commit um eine Änderung ergänzen
+- git commit --amend
+
+// Verlauf umschreiben (Commits zusammenfassen, umbenennen)
+- git rebase 
+```
 
 ## Welche Dateien sollte man versionieren?
 
@@ -118,56 +263,14 @@ Wird in der Projekt-Root abgelegt. Definiert welche Dateien oder welche Inhalt v
 
 **Achtung**: Git versioniert keine leeren Ordner. Dafür kann man eine .gitkeep in einen leeren Ordner ablegen.
 
-## Begriffe
+## Projektstruktur
+Projekte sollten so umgesetzt werden, dass sie ohne Probleme reproduzierbar sind
+- Optimierte Ordnerstruktur
+- Vorgefertigte .env.example
+- Migrations und Seeder oder SQL-Dump
+- Readme.MD mit Instruktionen (composer install oder npm install)
 
-![Git](https://i.stack.imgur.com/cZkcV.jpg)
-
-| Working Directory / Workspace / Working Tree | Alle Dateien im Projekt des ausgewählten Branches/Commits |
-| HEAD | Zeiger auf den aktuellen Commit oder Branch |
-| Index | Ablageort (Staging Area) |
-| Branch | Zweig, Standart-Zweig ist master (neuerdings Main weil Rasissmus) |
-| Fetch | Holte alle updates vom Remote Repository (Github), führt **kein** Merge durch |
-| Pull | Holte alle updates vom Remote Repository (Github), führt Merge durch |
-| Merge | Zusammenführen zweier Commits |
-| Rebase | Zusammenführen zweier Commits, nur anders |
-
-# Wie
-
-Lokales Git-Repository initialisieren
-
-```bash
-$ git init myproject
-```
-
-Aktuellen status erfragen
-
-```bash
-$ git status
-```
-
-Geänderte Dateien dem
-
-```bash
-$ git add .
-$ git commit -m "Importing all the code"
-```
-
-push (Lokale Daten zum Remote Repository schicken)
-
-```bash
-$ git push origin master
-```
-
-Commit pull (Daten vom Remote Repository holen)
-
-```bash
-$ git pull origin master
-```
-
-# Tools
-
-## GibHub
-
-## Sourcetree
-
-## Terminal
+## CI/CD (Continuouse Integration/Continuouse Delivery)
+Ausführung von Tests, Lintern, und automatische Veröffentlichung
+- Gibhub Actions
+- Bitbucket Deployments
