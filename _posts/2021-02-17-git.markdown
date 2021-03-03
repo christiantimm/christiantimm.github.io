@@ -7,32 +7,34 @@ title: "GIT"
 [https://git-scm.com/](https://git-scm.com/)
 
 ## Nützliche Ressourcen
+
 - [Bitbucket Git Tutorial](https://www.atlassian.com/de/git/tutorials/learn-git-with-bitbucket-cloud)
 - [Git Spickzettel](https://www.atlassian.com/de/git/tutorials/atlassian-git-cheatsheet)
 
-# Was ist das
+<!-- # Was ist das
 
-Software Versionsverwaltung, entwickelt von Linus Torvalds (Entwickler des Linux-Kernels)
+Software Versionsverwaltung, entwickelt von Linus Torvalds (Entwickler des Linux-Kernels) -->
 
 # Warum
 
--   Sicheres testen von Code, ohne auf CMD+Z angewiesen zu sein
--   Möglichkeit mit mehreren Leute an einem Projekt / einer Datei zu arbeiten
--   Sinnvoll für Homeoffice
--   Historie über Änderung (Wer, wann, wo, was, warum)
+- Sicheres testen von Code, ohne auf CMD+Z angewiesen zu sein
+- Möglichkeit mit mehreren Leute an einem Projekt / einer Datei zu arbeiten
+- Sinnvoll für Homeoffice
+- Historie über Änderung (Wer, wann, wo, was, warum)
 
 ## SSH-Key
+
 SSH (Secure Shell) zur Remote-Verbindung zur Shell von Servern. Der Key dient für die Authentifizierung von Client und Server.  
-Besteht aus Private (Schlüssel) und Public Key (Schloss). Private Key **nie** teilen. 
+Besteht aus Private (Schlüssel) und Public Key (Schloss). Private Key **nie** teilen.
 
 [Anleitung](https://support.atlassian.com/bitbucket-cloud/docs/set-up-an-ssh-key/)
 
 ## Online-Dienste
 
--   GitHub
--   BitBucket (Verwenden wir derzeit)
--   GitLab (OpenSource und kann auf eigenem Server installiert werden)
--   ... viele andere
+- GitHub
+- BitBucket (Verwenden wir derzeit)
+- GitLab (OpenSource und kann auf eigenem Server installiert werden)
+- ... viele andere
 
 ## Pricing
 
@@ -44,7 +46,7 @@ Besteht aus Private (Schlüssel) und Public Key (Schloss). Private Key **nie** t
 
 ![Git](https://i.stack.imgur.com/cZkcV.jpg)
 
-| Working Directory / Workspace / Working Tree | Alle Dateien im Projekt des ausgewählten Branches/Commits  I.d.R. Sync. mit den lokalen Dateien |
+| Working Directory / Workspace / Working Tree | Alle Dateien im Projekt des ausgewählten Branches/Commits I.d.R. Sync. mit den lokalen Dateien |
 | HEAD | Zeiger auf den aktuellen Commit oder Branch |
 | Index | Ablageort (Staging Area) |
 | Branch | Zweig, Standart-Zweig ist master (neuerdings Main weil Rasissmus) |
@@ -54,14 +56,14 @@ Besteht aus Private (Schlüssel) und Public Key (Schloss). Private Key **nie** t
 | Rebase | Zusammenführen zweier Commits, nur anders |
 
 ## Allgemeine Befehle (Siehe auch Spickzettel)
+
 - git init
 - git clone
 - git config
 
-
 ```bash
 // Initialisierung eines lokalen Git-Repos
-$ git init 
+$ git init
 
 // Externes Repo kopieren
 $ git clone <url>
@@ -72,17 +74,17 @@ $ git config --global user.email "example@example.com"
 ```
 
 ## Änderungen speichern
+
 - git add
-- git commit 
+- git commit
 - git stash
 - git diff
-
 
 ```bash
 // Alle geänderte/unbekannten/gelöschten Dateien der Staging-Area hinzufügen
 $ git add .
 
-// Spezifische Dateien 
+// Spezifische Dateien
 $ git add <file>
 
 // Dateien in der Staging-Area speichern mit kommentar
@@ -92,7 +94,7 @@ $ git commit -m "Importing all the code"
 $ git commit --amend
 
 // Änderungen aus dem der Arbeitskopie entfernen und zwischenspeichern (stashed)
-Sinnvoll, wenn man sich anderen Aufgaben widmen muss.  
+Sinnvoll, wenn man sich anderen Aufgaben widmen muss.
 Name des stashed: WIP on <branch>...
 
 // Ohne untracked Dateien
@@ -119,12 +121,13 @@ $ git stash drop stash@{1}
 // Alle stashes löschen
 $ git stash clear
 
-// Vergleich des Arbeitsbereichs mit HEAD (i.d.R. letzter Snaphshot von   
+// Vergleich des Arbeitsbereichs mit HEAD (i.d.R. letzter Snaphshot von
 aktuellen Branch, kann auch spezifischer Snapshot sein)
 $ git diff
 ```
 
 ## Ein Repository überprüfen
+
 - git status
 - git tag
 - git blame
@@ -139,12 +142,13 @@ $ git diff
 | Tracked | ✓ |
 
 ```bash
-// Status des aktuellen Arbeitsverzeichnisses (Workding Directory)  
+// Status des aktuellen Arbeitsverzeichnisses (Workding Directory)
 und der Staging-Umgebung ausgeben
 $ git status
 ```
 
 ## Änderungen rückgängig machen
+
 - git checkout
 - git clean
 - git revert
@@ -177,64 +181,67 @@ $ git checkout -b <name>
 ```
 
 ## Verläufe ändern
+
 - git commit --amend
 - git rebase
 - git rebase -i
 - git reflog
 
-### Folgende Befehle mit Vorsicht verwenden, da diese die Historie umschreiben.  
+### Folgende Befehle mit Vorsicht verwenden, da diese die Historie umschreiben.
+
 Allgemeine Regel: Nur verwenden, wenn die Änderung noch nicht gepushed wurden und man sich  
 in einem Feature-Branch befindet
 
 [Rebase](https://www.atlassian.com/de/git/tutorials/merging-vs-rebasing)
+
 ```bash
 // Den letzten commit um eine Änderung ergänzen
 - git commit --amend
 
 // Verlauf umschreiben (Commits zusammenfassen, umbenennen)
-- git rebase 
+- git rebase
 ```
 
 ## Welche Dateien sollte man versionieren?
 
 Alle Dateien, die für eine lauffähige Webseite nötig sind
 
--   PHP, HTML, JS, CSS
--   Bilder
--   PDF's
--   .env.example (Beispiel für .env, enthällt wichtige Variablen für das Projekt)
-    -   Bei Ersteinrichtung auf Arbeitsplatz
-    ```bash
-    $ cp .env.example .env
-    ```
+- PHP, HTML, JS, CSS
+- Bilder
+- PDF's
+- .env.example (Beispiel für .env, enthällt wichtige Variablen für das Projekt)
+  - Bei Ersteinrichtung auf Arbeitsplatz
+  ```bash
+  $ cp .env.example .env
+  ```
 
 ## Welche Dateien sollte man **nicht** versionieren
 
--   vendor Ordner bzw. statische Bibliotheken (composer)
-    -   Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .composer.json bzw. composer.lock
-    -   Installation über
-    ```bash
-    $ composer install
-    ```
--   node_modules (nodejs)
-    -   Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .package.json bzw. package.lock
-    -   Installation über
-    ```bash
-    $ npm install
-    ```
--   User generated content (Rechnungs-PDF's, Profilbilder, ...)
--   Zu große Dateien
+- vendor Ordner bzw. statische Bibliotheken (composer)
+  - Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .composer.json bzw. composer.lock
+  - Installation über
+  ```bash
+  $ composer install
+  ```
+- node_modules (nodejs)
+  - Die Informationen, welche Bibliotheken ein Projekt verwendet stehen in der .package.json bzw. package.lock
+  - Installation über
+  ```bash
+  $ npm install
+  ```
+- User generated content (Rechnungs-PDF's, Profilbilder, ...)
+- Zu große Dateien
 
 ### .env
 
--   Allgemeine Daten. (z.b.: E-mail Absender).
--   Sensible Daten wie Datenbankzugriff, Mailkonten
--   Zugriff über $\_['ENV'] Variable (getenv() veraltet in der neusten Version von [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv))
+- Allgemeine Daten. (z.b.: E-mail Absender).
+- Sensible Daten wie Datenbankzugriff, Mailkonten
+- Zugriff über $\_['ENV'] Variable (getenv() veraltet in der neusten Version von [vlucas/phpdotenv](https://github.com/vlucas/phpdotenv))
 
 #### Warum keine dbconnect.php oder config.php?
 
--   **You should never store sensitive credentials in your code**
--   Nicht versionierbar, da Inhalt immer von Entwicklungsumgebung abhängt (Homeoffice, Arbeitsplatz, Mobil), man würde sich ständig gegenseitig überschreiben
+- **You should never store sensitive credentials in your code**
+- Nicht versionierbar, da Inhalt immer von Entwicklungsumgebung abhängt (Homeoffice, Arbeitsplatz, Mobil), man würde sich ständig gegenseitig überschreiben
 
 .env
 
@@ -264,13 +271,17 @@ Wird in der Projekt-Root abgelegt. Definiert welche Dateien oder welche Inhalt v
 **Achtung**: Git versioniert keine leeren Ordner. Dafür kann man eine .gitkeep in einen leeren Ordner ablegen.
 
 ## Projektstruktur
+
 Projekte sollten so umgesetzt werden, dass sie ohne Probleme reproduzierbar sind
+
 - Optimierte Ordnerstruktur
 - Vorgefertigte .env.example
 - Migrations und Seeder oder SQL-Dump
 - Readme.MD mit Instruktionen (composer install oder npm install)
 
 ## CI/CD (Continuouse Integration/Continuouse Delivery)
+
 Ausführung von Tests, Lintern, und automatische Veröffentlichung
+
 - Gibhub Actions
 - Bitbucket Deployments
